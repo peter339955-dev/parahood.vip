@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球員卡會員制度 - 尊榮權益簡報</title>
+    <meta name="description" content="球員卡會員制度尊榮權益總覽簡報">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation dots -->
+    <nav class="slide-nav" id="slideNav">
+        <button class="nav-dot active" data-slide="0" aria-label="第一頁"></button>
+        <button class="nav-dot" data-slide="1" aria-label="第二頁"></button>
+    </nav>
+
+    <!-- Arrow navigation -->
+    <button class="arrow-btn arrow-left" id="prevBtn" aria-label="上一頁">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </button>
+    <button class="arrow-btn arrow-right" id="nextBtn" aria-label="下一頁">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+
+    <!-- Slide container -->
+    <div class="slides-container" id="slidesContainer">
+
+        <!-- ===== SLIDE 1: 全部權益總覽 ===== -->
+        <section class="slide slide-1" id="slide0">
+            <div class="slide-bg-decoration">
+                <div class="deco-circle deco-circle-1"></div>
+                <div class="deco-circle deco-circle-2"></div>
+                <div class="deco-circle deco-circle-3"></div>
+            </div>
+
+            <div class="slide-content">
+                <header class="slide-header">
+                    <div class="badge animate-in">MEMBERSHIP BENEFITS</div>
+                    <h1 class="slide-title animate-in delay-1">會員尊榮權益</h1>
+                    <p class="slide-subtitle animate-in delay-2">十大專屬福利，打造頂級收藏體驗</p>
+                </header>
+
+                <div class="benefits-grid">
+                    <!-- 01 消費回饋金 -->
+                    <div class="benefit-card animate-in delay-3">
+                        <div class="benefit-icon">💰</div>
+                        <div class="benefit-number">01</div>
+                        <h3>消費回饋金</h3>
+                        <p>單筆滿 3,000 依等級享 <strong>2.5%～10% 回饋金</strong></p>
+                        <ul class="tier-detail-list">
+                            <li class="td-bronze">銅 2.5%</li>
+                            <li class="td-silver">銀 4.5%</li>
+                            <li class="td-gold">金 4.5%</li>
+                            <li class="td-platinum">白金 7.5%</li>
+                            <li class="td-diamond">鑽石 10%</li>
+                        </ul>
+                    </div>
+
+                    <!-- 02 信箱電子報與通知 -->
+                    <div class="benefit-card animate-in delay-3">
+                        <div class="benefit-icon">📬</div>
+                        <div class="benefit-number">02</div>
+                        <h3>信箱電子報與通知</h3>
+                        <p>電子報＆上架通知；白金以上加碼<strong>熱門球員卡價追蹤、補貨與首發專屬通知</strong></p>
+                        <span class="tier-badge tier-bronze">銅</span>
+                        <span class="tier-badge tier-silver">銀</span>
+                        <span class="tier-badge tier-gold">金</span>
+                        <span class="tier-badge tier-platinum">白金 ↑升級</span>
+                        <span class="tier-badge tier-diamond">鑽石 ↑升級</span>
+                    </div>
+
+                    <!-- 03 提前優先購買 -->
+                    <div class="benefit-card animate-in delay-4">
+                        <div class="benefit-icon">⚡</div>
+                        <div class="benefit-number">03</div>
+                        <h3>提前優先購買</h3>
+                        <p>新品上架搶先一步，<strong>優先選購</strong>權</p>
+                        <span class="tier-badge tier-silver">銀</span>
+                        <span class="tier-badge tier-gold">金</span>
+                        <span class="tier-badge tier-platinum">白金</span>
+                        <span class="tier-badge tier-diamond">鑽石</span>
+                    </div>
+
+                    <!-- 04 SSP 磁吸保護卡盒 -->
+                    <div class="benefit-card animate-in delay-4">
+                        <div class="benefit-icon">🛡️</div>
+                        <div class="benefit-number">04</div>
+                        <h3>SSP 磁吸保護卡盒</h3>
+                        <p>抽到 SSP 卡盒即附贈<strong>磁吸保護卡盒</strong></p>
+                        <span class="tier-badge tier-all">全會員</span>
+                    </div>
+
+                    <!-- 05 生日購物金 -->
+                    <div class="benefit-card animate-in delay-5">
+                        <div class="benefit-icon">🎂</div>
+                        <div class="benefit-number">05</div>
+                        <h3>生日專屬購物金</h3>
+                        <p>生日當月透過信箱贈送<strong>專屬購物金</strong></p>
+                        <span class="tier-badge tier-all">全會員</span>
+                    </div>
+
+                    <!-- 06 福袋折扣 -->
+                    <div class="benefit-card animate-in delay-5">
+                        <div class="benefit-icon">🎁</div>
+                        <div class="benefit-number">06</div>
+                        <h3>福袋專屬折扣</h3>
+                        <p>購買福袋依等級享 <strong>5%～20% 折扣</strong></p>
+                        <ul class="tier-detail-list">
+                            <li class="td-silver">銀 5%</li>
+                            <li class="td-gold">金 10%</li>
+                            <li class="td-platinum">白金 15%</li>
+                            <li class="td-diamond">鑽石 20%</li>
+                        </ul>
+                    </div>
+
+                    <!-- 07 面交服務 -->
+                    <div class="benefit-card animate-in delay-6">
+                        <div class="benefit-icon">🤝</div>
+                        <div class="benefit-number">07</div>
+                        <h3>面交服務</h3>
+                        <p>親取愛卡，依等級享<strong>面交服務次數</strong></p>
+                        <ul class="tier-detail-list">
+                            <li class="td-gold">金 2 次</li>
+                            <li class="td-platinum">白金 4 次</li>
+                            <li class="td-diamond">鑽石 6 次</li>
+                        </ul>
+                    </div>
+
+                    <!-- 08 鑑定服務 -->
+                    <div class="benefit-card animate-in delay-6">
+                        <div class="benefit-icon">🔍</div>
+                        <div class="benefit-number">08</div>
+                        <h3>鑑定服務</h3>
+                        <p>專業鑑定，依等級享<strong>鑑定服務次數</strong></p>
+                        <ul class="tier-detail-list">
+                            <li class="td-platinum">白金 1 次</li>
+                            <li class="td-diamond">鑽石 2 次</li>
+                        </ul>
+                    </div>
+
+                    <!-- 09 升等禮遇禮盒 -->
+                    <div class="benefit-card animate-in delay-7">
+                        <div class="benefit-icon">🎖️</div>
+                        <div class="benefit-number">09</div>
+                        <h3>升等禮遇禮盒</h3>
+                        <p>升級即贈 <strong>VIP 專屬歡迎禮盒</strong>，尊榮感滿分</p>
+                        <span class="tier-badge tier-gold">金</span>
+                        <span class="tier-badge tier-platinum">白金</span>
+                        <span class="tier-badge tier-diamond">鑽石</span>
+                    </div>
+
+                    <!-- 10 1對1 專屬服務 -->
+                    <div class="benefit-card animate-in delay-7">
+                        <div class="benefit-icon">💎</div>
+                        <div class="benefit-number">10</div>
+                        <h3>1 對 1 專屬服務</h3>
+                        <p>VIP 專屬客服＆<strong>下單服務</strong>，極致尊享</p>
+                        <span class="tier-badge tier-diamond">鑽石</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SLIDE 2: 各等級權益對照表 ===== -->
+        <section class="slide slide-2" id="slide1">
+            <div class="slide-bg-decoration">
+                <div class="deco-circle deco-circle-4"></div>
+                <div class="deco-circle deco-circle-5"></div>
+            </div>
+
+            <div class="slide-content">
+                <header class="slide-header">
+                    <div class="badge animate-in">TIER COMPARISON</div>
+                    <h1 class="slide-title animate-in delay-1">會員等級權益對照</h1>
+                    <p class="slide-subtitle animate-in delay-2">五大等級，層層升級享更多</p>
+                </header>
+
+                <!-- Tier threshold pills -->
+                <div class="tier-thresholds animate-in delay-3">
+                    <div class="threshold-pill threshold-bronze">
+                        <span class="threshold-tier">銅牌</span>
+                        <span class="threshold-value">註冊即享</span>
+                    </div>
+                    <div class="threshold-arrow">→</div>
+                    <div class="threshold-pill threshold-silver">
+                        <span class="threshold-tier">銀牌</span>
+                        <span class="threshold-value">累積 $8,000</span>
+                    </div>
+                    <div class="threshold-arrow">→</div>
+                    <div class="threshold-pill threshold-gold">
+                        <span class="threshold-tier">金牌</span>
+                        <span class="threshold-value">累積 $50,000</span>
+                    </div>
+                    <div class="threshold-arrow">→</div>
+                    <div class="threshold-pill threshold-platinum">
+                        <span class="threshold-tier">白金</span>
+                        <span class="threshold-value">累積 $200,000</span>
+                    </div>
+                    <div class="threshold-arrow">→</div>
+                    <div class="threshold-pill threshold-diamond">
+                        <span class="threshold-tier">鑽石</span>
+                        <span class="threshold-value">累積 $500,000</span>
+                    </div>
+                </div>
+
+                <!-- Comparison table -->
+                <div class="table-wrapper animate-in delay-4">
+                    <table class="comparison-table" id="comparisonTable">
+                        <thead>
+                            <tr>
+                                <th class="col-benefit">會員權益</th>
+                                <th class="col-tier col-bronze">
+                                    <div class="tier-header">
+                                        <span class="tier-icon">🥉</span>
+                                        <span class="tier-name">銅牌</span>
+                                    </div>
+                                </th>
+                                <th class="col-tier col-silver">
+                                    <div class="tier-header">
+                                        <span class="tier-icon">🥈</span>
+                                        <span class="tier-name">銀牌</span>
+                                    </div>
+                                </th>
+                                <th class="col-tier col-gold">
+                                    <div class="tier-header">
+                                        <span class="tier-icon">🥇</span>
+                                        <span class="tier-name">金牌</span>
+                                    </div>
+                                </th>
+                                <th class="col-tier col-platinum">
+                                    <div class="tier-header">
+                                        <span class="tier-icon">✨</span>
+                                        <span class="tier-name">白金</span>
+                                    </div>
+                                </th>
+                                <th class="col-tier col-diamond">
+                                    <div class="tier-header">
+                                        <span class="tier-icon">💎</span>
+                                        <span class="tier-name">鑽石</span>
+                                    </div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="benefit-name">💰 消費回饋金（單筆滿3,000）</td>
+                                <td class="value">2.5%</td>
+                                <td class="value">4.5%</td>
+                                <td class="value">4.5%</td>
+                                <td class="value">7.5%</td>
+                                <td class="value">10%</td>
+                            </tr>
+                            <tr>
+                                <td class="benefit-name">📬 信箱電子報與上架通知</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                            </tr>
+                            <tr>
+                                <td class="benefit-name">🔥 熱門球員卡價追蹤 / 補貨與首發專屬通知</td>
+                                <td class="cross">—</td>
+                                <td class="cross">—</td>
+                                <td class="cross">—</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                            </tr>
+                            <tr>
+                                <td class="benefit-name">⚡ 提前優先購買</td>
+                                <td class="cross">—</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                            </tr>
+                            <tr>
+                                <td class="benefit-name">🛡️ SSP卡盒附贈磁吸保護卡盒</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                            </tr>
+                            <tr>
+                                <td class="benefit-name">🎂 生日專屬購物金</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                            </tr>
+                            <tr>
+                                <td class="benefit-name">🎁 福袋專屬折扣</td>
+                                <td class="cross">—</td>
+                                <td class="value">5%</td>
+                                <td class="value">10%</td>
+                                <td class="value">15%</td>
+                                <td class="value">20%</td>
+                            </tr>
+                            <tr>
+                                <td class="benefit-name">🤝 面交服務</td>
+                                <td class="cross">—</td>
+                                <td class="cross">—</td>
+                                <td class="value">2 次</td>
+                                <td class="value">4 次</td>
+                                <td class="value">6 次</td>
+                            </tr>
+                            <tr>
+                                <td class="benefit-name">🔍 鑑定服務</td>
+                                <td class="cross">—</td>
+                                <td class="cross">—</td>
+                                <td class="cross">—</td>
+                                <td class="value">1 次</td>
+                                <td class="value">2 次</td>
+                            </tr>
+                            <tr>
+                                <td class="benefit-name">🎖️ 升等禮遇禮盒</td>
+                                <td class="cross">—</td>
+                                <td class="cross">—</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                                <td class="check">✔</td>
+                            </tr>
+                            <tr>
+                                <td class="benefit-name">💎 1對1 VIP 專屬客服與下單服務</td>
+                                <td class="cross">—</td>
+                                <td class="cross">—</td>
+                                <td class="cross">—</td>
+                                <td class="cross">—</td>
+                                <td class="check">✔</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-footer animate-in delay-5">
+                    <p>🎖️ 升等禮遇禮盒 = 升級至該等級時立即贈送一份 VIP 專屬歡迎禮盒（Welcome Bonus）</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

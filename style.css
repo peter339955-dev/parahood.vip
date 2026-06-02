@@ -1,0 +1,826 @@
+/* ========================================
+   ROOT VARIABLES & RESET
+   ======================================== */
+:root {
+    /* Color palette — brighter dark theme */
+    --bg-primary: #1a1f3d;
+    --bg-secondary: #222850;
+    --bg-card: rgba(255, 255, 255, 0.08);
+    --bg-card-hover: rgba(255, 255, 255, 0.14);
+
+    --text-primary: #f5f5fa;
+    --text-secondary: rgba(245, 245, 255, 0.72);
+    --text-muted: rgba(245, 245, 255, 0.45);
+
+    /* Tier colors */
+    --bronze: #e8965a;
+    --bronze-bg: rgba(232, 150, 90, 0.15);
+    --silver: #c4ced8;
+    --silver-bg: rgba(196, 206, 216, 0.14);
+    --gold: #ffd952;
+    --gold-bg: rgba(255, 217, 82, 0.14);
+    --platinum: #7ecbf5;
+    --platinum-bg: rgba(126, 203, 245, 0.14);
+    --diamond: #a0f0ff;
+    --diamond-bg: rgba(160, 240, 255, 0.16);
+
+    /* Accent */
+    --accent: #8b7ff7;
+    --accent-glow: rgba(139, 127, 247, 0.3);
+
+    /* Spacing */
+    --slide-padding: 60px;
+
+    /* Transitions */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans TC', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   SLIDES CONTAINER
+   ======================================== */
+.slides-container {
+    display: flex;
+    width: 200vw;
+    height: 100vh;
+    transition: transform 0.8s var(--ease-out-expo);
+}
+
+.slide {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.slide-content {
+    width: 100%;
+    max-width: 1400px;
+    padding: var(--slide-padding) 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* ========================================
+   BACKGROUND DECORATIONS
+   ======================================== */
+.slide-bg-decoration {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.35;
+}
+
+.deco-circle-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139, 127, 247, 0.5), transparent 70%);
+    top: -200px;
+    right: -150px;
+    animation: float1 15s ease-in-out infinite;
+}
+
+.deco-circle-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 217, 82, 0.3), transparent 70%);
+    bottom: -100px;
+    left: -100px;
+    animation: float2 18s ease-in-out infinite;
+}
+
+.deco-circle-3 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(160, 240, 255, 0.25), transparent 70%);
+    top: 40%;
+    left: 50%;
+    animation: float3 20s ease-in-out infinite;
+}
+
+.deco-circle-4 {
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(139, 127, 247, 0.35), transparent 70%);
+    top: -300px;
+    left: -200px;
+    animation: float2 16s ease-in-out infinite;
+}
+
+.deco-circle-5 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(160, 240, 255, 0.25), transparent 70%);
+    bottom: -200px;
+    right: -150px;
+    animation: float1 18s ease-in-out infinite;
+}
+
+@keyframes float1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-30px, 20px) scale(1.05); }
+}
+
+@keyframes float2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, -30px) scale(1.08); }
+}
+
+@keyframes float3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(-15px, -20px) scale(0.95); }
+}
+
+/* ========================================
+   SLIDE HEADER
+   ======================================== */
+.slide-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--accent);
+    border: 1px solid rgba(139, 127, 247, 0.35);
+    background: rgba(139, 127, 247, 0.12);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.slide-title {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1.2;
+    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+}
+
+.slide-subtitle {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    color: var(--text-secondary);
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   SLIDE 1: BENEFITS GRID
+   ======================================== */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.benefit-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 28px 24px 22px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s var(--ease-out-expo);
+    cursor: default;
+    backdrop-filter: blur(10px);
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--diamond));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.benefit-card:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 40px var(--accent-glow);
+}
+
+.benefit-card:hover::before {
+    opacity: 1;
+}
+
+.benefit-icon {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.benefit-card:hover .benefit-icon {
+    animation: iconBounce 0.5s var(--ease-out-expo);
+}
+
+@keyframes iconBounce {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+.benefit-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 1px;
+}
+
+.benefit-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.benefit-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.benefit-card p strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+/* Tier detail list inside benefit cards */
+.tier-detail-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tier-detail-list li {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.tier-detail-list li.td-bronze {
+    background: var(--bronze-bg);
+    color: var(--bronze);
+    border: 1px solid rgba(232, 150, 90, 0.25);
+}
+
+.tier-detail-list li.td-silver {
+    background: var(--silver-bg);
+    color: var(--silver);
+    border: 1px solid rgba(196, 206, 216, 0.25);
+}
+
+.tier-detail-list li.td-gold {
+    background: var(--gold-bg);
+    color: var(--gold);
+    border: 1px solid rgba(255, 217, 82, 0.25);
+}
+
+.tier-detail-list li.td-platinum {
+    background: var(--platinum-bg);
+    color: var(--platinum);
+    border: 1px solid rgba(126, 203, 245, 0.3);
+}
+
+.tier-detail-list li.td-diamond {
+    background: var(--diamond-bg);
+    color: var(--diamond);
+    border: 1px solid rgba(160, 240, 255, 0.3);
+}
+
+/* Tier badges inside benefit cards */
+.tier-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+.tier-all {
+    background: rgba(139, 127, 247, 0.15);
+    color: #b3a8fb;
+    border: 1px solid rgba(139, 127, 247, 0.3);
+}
+
+.tier-bronze {
+    background: var(--bronze-bg);
+    color: var(--bronze);
+    border: 1px solid rgba(232, 150, 90, 0.25);
+}
+
+.tier-silver {
+    background: var(--silver-bg);
+    color: var(--silver);
+    border: 1px solid rgba(196, 206, 216, 0.25);
+}
+
+.tier-gold {
+    background: var(--gold-bg);
+    color: var(--gold);
+    border: 1px solid rgba(255, 217, 82, 0.25);
+}
+
+.tier-platinum {
+    background: var(--platinum-bg);
+    color: var(--platinum);
+    border: 1px solid rgba(126, 203, 245, 0.3);
+}
+
+.tier-diamond {
+    background: var(--diamond-bg);
+    color: var(--diamond);
+    border: 1px solid rgba(160, 240, 255, 0.3);
+}
+
+/* ========================================
+   SLIDE 2: COMPARISON TABLE
+   ======================================== */
+.tier-thresholds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 36px;
+}
+
+.threshold-pill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 14px;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    min-width: 110px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s ease;
+}
+
+.threshold-pill:hover {
+    transform: translateY(-2px);
+}
+
+.threshold-tier {
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.threshold-value {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.threshold-bronze .threshold-tier { color: var(--bronze); }
+.threshold-bronze { border-color: rgba(232, 150, 90, 0.25); }
+.threshold-silver .threshold-tier { color: var(--silver); }
+.threshold-silver { border-color: rgba(196, 206, 216, 0.25); }
+.threshold-gold .threshold-tier { color: var(--gold); }
+.threshold-gold { border-color: rgba(255, 217, 82, 0.25); }
+.threshold-platinum .threshold-tier { color: var(--platinum); }
+.threshold-platinum { border-color: rgba(126, 203, 245, 0.25); }
+.threshold-diamond .threshold-tier { color: var(--diamond); }
+.threshold-diamond { border-color: rgba(160, 240, 255, 0.25); }
+
+.threshold-arrow {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* Table */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.comparison-table thead {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+
+.comparison-table th {
+    padding: 18px 16px;
+    font-weight: 700;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+}
+
+.comparison-table th.col-benefit {
+    text-align: left;
+    min-width: 280px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.tier-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.tier-header .tier-icon {
+    font-size: 1.3rem;
+}
+
+.tier-header .tier-name {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.col-bronze .tier-name { color: var(--bronze); }
+.col-silver .tier-name { color: var(--silver); }
+.col-gold .tier-name { color: var(--gold); }
+.col-platinum .tier-name { color: var(--platinum); }
+.col-diamond .tier-name { color: var(--diamond); }
+
+.comparison-table td {
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    vertical-align: middle;
+    transition: background 0.3s ease;
+}
+
+.comparison-table tbody tr:hover td {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.comparison-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.benefit-name {
+    text-align: left !important;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+td.check {
+    color: #5eea9a;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+td.check.upgrade {
+    color: var(--platinum);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+td.value {
+    color: #5eea9a;
+    font-weight: 700;
+    font-size: 0.82rem;
+}
+
+td.cross {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Special highlight for diamond column */
+.col-diamond {
+    position: relative;
+}
+
+.comparison-table th.col-diamond {
+    background: rgba(160, 240, 255, 0.06);
+}
+
+.comparison-table tbody tr td:last-child {
+    background: rgba(160, 240, 255, 0.03);
+}
+
+.comparison-table tbody tr:hover td:last-child {
+    background: rgba(160, 240, 255, 0.07);
+}
+
+.table-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 40px;
+}
+
+.table-footer p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+.slide-nav {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+    padding: 10px 20px;
+    background: rgba(34, 40, 80, 0.75);
+    backdrop-filter: blur(20px);
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.4s var(--ease-out-expo);
+    padding: 0;
+}
+
+.nav-dot:hover {
+    border-color: rgba(255, 255, 255, 0.65);
+}
+
+.nav-dot.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    width: 28px;
+    border-radius: 100px;
+    box-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* Arrow buttons */
+.arrow-btn {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(34, 40, 80, 0.65);
+    backdrop-filter: blur(20px);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+.arrow-btn:hover {
+    background: rgba(139, 127, 247, 0.2);
+    border-color: rgba(139, 127, 247, 0.35);
+    color: var(--text-primary);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.arrow-left {
+    left: 20px;
+}
+
+.arrow-right {
+    right: 20px;
+}
+
+.arrow-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+.animate-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+
+.animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+.delay-7 { transition-delay: 0.7s; }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 1024px) {
+    .slide-content {
+        padding: 40px 24px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 14px;
+    }
+
+    .tier-thresholds {
+        gap: 6px;
+    }
+
+    .threshold-pill {
+        min-width: 90px;
+        padding: 8px 12px;
+    }
+
+    .benefit-name {
+        white-space: normal !important;
+        min-width: 200px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .slide-content {
+        padding: 30px 16px;
+    }
+
+    .slide-header {
+        margin-bottom: 28px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .benefit-card {
+        padding: 20px 18px 18px;
+    }
+
+    .tier-thresholds {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .threshold-arrow {
+        transform: rotate(90deg);
+    }
+
+    .arrow-btn {
+        display: none;
+    }
+
+    .comparison-table {
+        font-size: 0.75rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 10px 8px;
+    }
+
+    .benefit-name {
+        min-width: 160px !important;
+        font-size: 0.75rem;
+    }
+}
+
+/* Custom scrollbar */
+.slide::-webkit-scrollbar {
+    width: 4px;
+}
+
+.slide::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.slide::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+}
+
+.slide::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Print styles */
+@media print {
+    body {
+        overflow: visible;
+        height: auto;
+        background: #fff;
+        color: #111;
+    }
+
+    .slides-container {
+        display: block;
+        width: 100%;
+    }
+
+    .slide {
+        width: 100%;
+        height: auto;
+        page-break-after: always;
+        overflow: visible;
+    }
+
+    .slide-bg-decoration,
+    .slide-nav,
+    .arrow-btn {
+        display: none !important;
+    }
+
+    .benefit-card {
+        background: #f8f8f8;
+        border: 1px solid #ddd;
+        break-inside: avoid;
+    }
+
+    .slide-title {
+        -webkit-text-fill-color: #111;
+    }
+
+    .comparison-table td.check,
+    .comparison-table td.value {
+        color: #22863a;
+    }
+
+    .comparison-table td.cross {
+        color: #999;
+    }
+}
